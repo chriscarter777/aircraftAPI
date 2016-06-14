@@ -1,0 +1,14 @@
+﻿@model AircraftAPI.Models.Aircraft
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+    <h2>Edit @Model.Name</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.EditorForModel()
+        <input type="submit" class="btn btn-info" />
+    }
+</div>

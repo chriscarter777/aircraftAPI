@@ -1,0 +1,44 @@
+﻿@using AircraftAPI.Models;
+@model IEnumerable<Aircraft>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <h2>Aircraft</h2>
+    <table class="table table-striped table-condensed">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th class="text-center">Seats</th>
+            <th class="text-center">HP</th>
+            <th class="text-center">Cruise(75%)</th>
+            <th class="text-center">Climb(Gross)</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (Aircraft aircraft in Model)
+        {
+            <tr>
+                <td>@aircraft.Id</td>
+                <td>@aircraft.Name</td>
+                <td class="text-center">@aircraft.Seats</td>
+                <td class="text-center">@aircraft.Hp</td>
+                <td class="text-center">@aircraft.Cruise</td>
+                <td class="text-center">@aircraft.Climb</td>
+                <td>@aircraft.Price</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = aircraft.Id }, new { @class="btn btn-info btn-xs"})
+                    @Html.ActionLink("Delete", "Delete", new { id = aircraft.Id }, new { @class = "btn btn-warning btn-xs" })
+                </td>
+            </tr>
+        }
+    </table>
+
+
+    <hr />
+
+    @Html.ActionLink("Add", "Add", null, new { @class = "btn btn-success pull-right btn-sm" })
+</div>
